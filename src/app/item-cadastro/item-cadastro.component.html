@@ -1,3 +1,19 @@
-<p>
-  item-cadastro works!
-</p>
+
+<div class="ui-g">
+
+  <div class="ui-g-12">
+    <p-dataTable [value]="itens">
+        <p-column field="nome" header="Nome"></p-column>
+        <p-column field="descricao" header="Descrição"></p-column>
+        <p-column header="Preço">
+          <ng-template pTemplate="body" let-item="rowData">
+            R$ {{ item.preco }}
+          </ng-template>
+        </p-column>
+        <p-column field="categoria" header="Categoria"></p-column>
+      </p-dataTable>
+
+  </div>
+
+</div>
+
