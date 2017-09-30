@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
-import { DataTableModule, SharedModule } from 'primeng/primeng';
+import { DataTableModule, ButtonModule, InputTextModule, 
+  InputMaskModule, CalendarModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { NavbarVaiComponent } from './navbar-vai/navbar-vai.component';
 import { ItemCadastroComponent } from './item-cadastro/item-cadastro.component';
+import { ItemService } from "./item.service";
 
 @NgModule({
   declarations: [
@@ -16,9 +19,13 @@ import { ItemCadastroComponent } from './item-cadastro/item-cadastro.component';
   imports: [
     BrowserModule,
     DataTableModule,
-    SharedModule
+    HttpClientModule,
+    ButtonModule, 
+    InputTextModule, 
+    InputMaskModule, 
+    CalendarModule
   ],
-  providers: [],
+  providers: [ ItemService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

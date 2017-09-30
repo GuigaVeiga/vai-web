@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from "../item.service";
 
 @Component({
   selector: 'app-item-cadastro',
@@ -7,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemCadastroComponent implements OnInit {
 
-  //Testes antes de consumir os serviços da API-VAI
-  itens = [
-    { nome:"SALAME ITALIANO", descricao:"SALAME ITALIANO FATIADO SEARA 100G", preco: 7.94, categoria:"FRIOS"},
-    { nome:"QUEIJO MINAS ", descricao:"PADRÃO TIROLEZ PEDAÇO 500G", preco: 29.45 , categoria:"FRIOS"}
-  ]
-
-  constructor() { }
+  itens = [];
+  constructor( private itemService: ItemService) { }
 
   ngOnInit() {
+    this.consultar();
+  }
+  
+  consultar(){
+    this.itemService.listar().subscribe(dados => this.itens = dados);
   }
 
 }
